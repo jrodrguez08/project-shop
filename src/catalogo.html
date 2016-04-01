@@ -12,7 +12,7 @@
     <script src="js/controller.js"></script>
 </head>
 
-<body>
+<body ng-controller="catalogController">
     <div class="container-fluid">
         <div class="container">
             <div class="row">
@@ -25,7 +25,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="index.html">Brand</a>
+                            <a class="navbar-brand" href="index.html">Libreria</a>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
@@ -52,14 +52,16 @@
 
     <div class="container-fluid">
         <div class="container">
-            <div class="row" ng-controller="catalogController">
+            <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-12" ng-repeat="book in books">
                     <div class="well">
                         <div class="row">
-                            <p class="text-center">{{book.title}}</p>
+                            <h4 class="text-center">{{book.title}}</h4>
                         </div>
                         <div class="row">
-                            <p class="text-center"><img src="{{book.cover}}" class="img-responsive grow"></p>
+                            <p class="text-center">
+                                <a data-toggle="modal" data-target="#cover"><img src="{{book.cover}}" class="img-responsive grow"></a>
+                            </p>
                         </div>
                         <div class="row">
                             <p class="text-center">{{book.price}}</p>
@@ -74,6 +76,34 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="cover">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">{{book.title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4"><img src="images/pf.png" class="img-responsive grow"></div>
+                        <div class="col-xs-8 col-sm-8 col-md-8">
+                            <p>Autor: {{book.author}}
+                                <br> Idioma: {{book.language}}
+                                <br> Editorial: {{book.publisher}}
+                                <br> Precio: {{book.price}}
+                                <br> Publicado: {{book.published}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Agregar a carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
