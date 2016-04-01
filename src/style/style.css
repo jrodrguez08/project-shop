@@ -3,6 +3,19 @@
     background-image: none;
 }
 
-.carousel-inner img {
+.carousel-inner img,
+.well img {
     margin: 0 auto;
+}
+
+.break {
+    display: block;
+}
+
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(1.05);
 }

@@ -1,0 +1,56 @@
+[
+    {
+        "title": "Harry Potter y la Piedra Filosofal",
+        "author": "J. K. Rowling",
+        "language": "Espanol",
+        "editorial": "Salamandra",
+        "price": "10.000",
+        "published": "Marzo, 1999",
+        "cover": "images/pf.png"
+        },
+    {
+        "title": "Harry Potter y la Camara Secreta",
+        "author": "J. K. Rowling",
+        "language": "Espanol",
+        "editorial": "Salamandra",
+        "price": "12.000",
+        "published": "Octubre, 1999",
+        "cover": "images/cs.png"
+        },
+    {
+        "title": "Harry Potter y el Prisionero de Azkaban",
+        "author": "J. K. Rowling",
+        "language": "Espanol",
+        "editorial": "Salamandra",
+        "price": "13.000",
+        "published": "Abril, 2000",
+        "cover": "images/pa.png"
+        },
+    {
+        "title": "Harry Potter y el Caliz de Fuego",
+        "author": "J. K. Rowling",
+        "language": "Espanol",
+        "editorial": "Salamandra",
+        "price": "15.000",
+        "published": "Marzo, 2001",
+        "cover": "images/cf.png"
+    },
+    {
+        "title": "Harry Potter y la Orden del Fenix",
+        "author": "J. K. Rowling",
+        "language": "Espanol",
+        "editorial": "Salamandra",
+        "price": "16.000",
+        "published": "Febrero, 2004",
+        "cover": "images/of.png"
+    },
+    {
+        "title": "Harry Potter y el Principe Mestizo",
+        "author": "J. K. Rowling",
+        "language": "Espanol",
+        "editorial": "Salamandra",
+        "price": "16.000",
+        "published": "Febrero, 2006",
+        "cover": "images/pm.png"
+    }
+]

@@ -55,7 +55,7 @@ gulp.task('basic-reload', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['src/*.html', 'src/style/*.css'], ['basic-reload']);
+    gulp.watch(['src/*.html', 'src/style/*.css', 'src/js/*.js', 'src/json/*.json'], ['basic-reload']);
 });
 
 gulp.task('serve', function (callback) {
