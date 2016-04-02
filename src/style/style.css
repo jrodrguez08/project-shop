@@ -38,3 +38,11 @@
     text-align: left;
     vertical-align: middle;
 }
+
+.filter_row {
+    margin-bottom: 2%;
+}
+
+.map {
+    padding-bottom: 5%;
+}

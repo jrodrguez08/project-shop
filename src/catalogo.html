@@ -25,12 +25,12 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="index.html">Libreria</a>
+                            <a class="navbar-brand" href="index.html">Libreria <span class="glyphicon glyphicon-book" aria-hidden="true"></span></a>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
                                 <li><a href="qs.html">Quienes somos</a></li>
-                                <li><a href="#">Link 3</a></li>
+                                <li><a href="contacto.html">Contactenos</a></li>
                                 <li><a href="#">Link 4</a></li>
                             </ul>
                         </div>
@@ -44,7 +44,7 @@
         <div class="container">
             <div class="row">
                 <div class="page-header">
-                    <h1>Catalogo</h1>
+                    <h1>Libreria Virtual <small>Catalogo</small></h1>
                 </div>
             </div>
         </div>
@@ -52,8 +52,16 @@
 
     <div class="container-fluid">
         <div class="container">
+            <div class="row filter_row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <form class="form-inline">
+                        <label for="Buscar">Buscar:</label>
+                        <input type="text" class="form-control" id="Buscar" ng-model="searchBook">
+                    </form>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-md-4 col-sm-4 col-xs-12" ng-repeat="book in books">
+                <div class="col-md-4 col-sm-4 col-xs-12" ng-repeat="book in books | filter:searchBook">
                     <div class="well">
                         <div class="row">
                             <h4 class="text-center">{{book.title}}</h4>
@@ -67,12 +75,11 @@
                             <p class="text-center">{{book.price}}</p>
                         </div>
                         <div class="row">
-                            <p class="text-center"><a class="btn btn-primary" href="#" role="button">Agregar a carrito</a></p>
+                            <p class="text-center"><a class="btn btn-primary" href="#" role="button">Agregar a carrito <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></p>
                         </div>
                     </div>
                 </div>
                 <div class="clearfix" ng-if="$index%3==2"></div>
-                <div ng-repeat-end=""></div>
             </div>
         </div>
     </div>
