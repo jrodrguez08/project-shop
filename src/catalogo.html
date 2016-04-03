@@ -59,55 +59,71 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-4 col-xs-12" ng-repeat="book in bookStore.books | filter:searchBook">
-                    <div class="well">
-                        <div class="row">
-                            <h4 class="text-center">{{book.title}}</h4>
-                        </div>
-                        <div class="row">
-                            <p class="text-center">
-                                <a data-toggle="modal" data-target="#cover" ng-click="bookStore.selected = book"><img src="{{book.cover}}" class="img-responsive grow"></a>
-                            </p>
-                        </div>
-                        <div class="row">
-                            <p class="text-center">{{book.price}}</p>
-                        </div>
-                        <div class="row">
-                            <p class="text-center"><a class="btn btn-primary" href="#" role="button">Agregar a carrito <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix" ng-if="$index%3==2"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" tabindex="-1" role="dialog" id="cover">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">{{bookStore.selected.title}}</h4>
-                </div>
-                <div class="modal-body">
+                <div class="col-md-8">
                     <div class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-4"><img src="{{bookStore.selected.cover}}" class="img-responsive grow"></div>
-                        <div class="col-xs-8 col-sm-8 col-md-8">
-                            <p>Autor: {{bookStore.selected.author}}
-                                <br> Idioma: {{bookStore.selected.language}}
-                                <br> Editorial: {{bookStore.selected.publisher}}
-                                <br> Precio: {{bookStore.selected.price}}
-                                <br> Publicado: {{bookStore.selected.published}}
-                            </p>
+                        <div class="col-md-4 col-sm-4 col-xs-12" ng-repeat="book in bookStore.books | filter:searchBook">
+                            <div class="well">
+                                <div class="row">
+                                    <h4 class="text-center">{{book.title}}</h4>
+                                </div>
+                                <div class="row">
+                                    <p class="text-center">
+                                        <a data-toggle="modal" data-target="#cover" ng-click="bookStore.selected = book"><img src="{{book.cover}}" class="img-responsive grow"></a>
+                                    </p>
+                                </div>
+                                <div class="row">
+                                    <p class="text-center">{{book.price}}</p>
+                                </div>
+                                <div class="row">
+                                    <p class="text-center"><a class="btn btn-primary" href="#" role="button">Agregar a carrito <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix" ng-if="$index%3==2"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <h2>Carrito <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Pellentesque facilisis ex scelerisque varius sodales. Suspendisse potenti. Fusce pretium mi ipsum, et aliquet ipsum finibus vitae. Curabitur fringilla purus ipsum, vitae sagittis diam volutpat sed. Nam mattis tellus sit amet rutrum semper. Integer sed ullamcorper neque, ac efficitur urna. Nam id risus efficitur, rutrum ex a, pretium nulla. In augue metus, mattis non nunc sed, varius semper nisi. Sed malesuada, mi ac cursus auctor, risus est tincidunt erat, id cursus augue nisi non lacus. Aenean placerat arcu sem. Nam sit amet porttitor elit, vitae congue sapien.</p>
+                            <div class="col-md-12">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Agregar a carrito</button>
+            </div>
+
+            <div class="modal fade" tabindex="-1" role="dialog" id="cover">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">{{bookStore.selected.title}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-4"><img src="{{bookStore.selected.cover}}" class="img-responsive grow"></div>
+                                <div class="col-xs-8 col-sm-8 col-md-8">
+                                    <p>Autor: {{bookStore.selected.author}}
+                                        <br> Idioma: {{bookStore.selected.language}}
+                                        <br> Editorial: {{bookStore.selected.publisher}}
+                                        <br> Precio: {{bookStore.selected.price}}
+                                        <br> Publicado: {{bookStore.selected.published}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Agregar a carrito</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 </body>
 
 </html>
