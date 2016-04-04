@@ -28,8 +28,8 @@
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="qs.html">Quiénes somos</a></li>
-                            <li><a href="contacto.html">Contáctenos</a></li>
+                            <li><a href="qs.html">Quiénes somos <span class="glyphicon glyphicon-info-sign"></span></a></li>
+                            <li><a href="contacto.html">Contáctenos <span class="glyphicon glyphicon-phone-alt"></span></a></li>
                             <li><a href="#">Link 4</a></li>
                         </ul>
                     </div>
@@ -75,7 +75,7 @@
                                     <p class="text-center">&#8353;{{book.price}}</p>
                                 </div>
                                 <div class="row">
-                                    <p class="text-center"><a class="btn btn-primary" href="#" role="button" ng-click="addToCart(book);">Agregar a carrito <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></p>
+                                    <p class="text-center"><a class="btn btn-primary" href="" role="button" ng-click="addToCart(book);">Agregar a carrito <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></p>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                     <span class="badge" ng-show="product.quantity > 1">x{{product.quantity}}</span>
                                 </span>
                                 <p class="chkout-btn">
-                                    <button class="btn btn-primary" ng-click="checkout();">Checkout</button>
+                                    <button class="btn btn-primary" ng-click="checkout()">Confirmar <span class="glyphicon glyphicon-check"></span></button>
                                 </p>
                             </div>
                         </div>
