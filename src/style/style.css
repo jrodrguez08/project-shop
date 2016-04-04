@@ -46,3 +46,13 @@
 .map {
     padding-bottom: 5%;
 }
+
+.cart img+span.badge {
+    position: relative;
+    top: -85px;
+    left: -35px;
+}
+
+.chkout-btn {
+    margin-top: 10%;
+}

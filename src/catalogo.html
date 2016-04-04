@@ -72,10 +72,10 @@
                                     </p>
                                 </div>
                                 <div class="row">
-                                    <p class="text-center">{{book.price}}</p>
+                                    <p class="text-center">&#8353;{{book.price}}</p>
                                 </div>
                                 <div class="row">
-                                    <p class="text-center"><a class="btn btn-primary" href="#" role="button">Agregar a carrito <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></p>
+                                    <p class="text-center"><a class="btn btn-primary" href="#" role="button" ng-click="addToCart(book);">Agregar a carrito <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></p>
                                 </div>
                             </div>
                         </div>
@@ -89,9 +89,16 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
-                            <p>Pellentesque facilisis ex scelerisque varius sodales. Suspendisse potenti. Fusce pretium mi ipsum, et aliquet ipsum finibus vitae. Curabitur fringilla purus ipsum, vitae sagittis diam volutpat sed. Nam mattis tellus sit amet rutrum semper. Integer sed ullamcorper neque, ac efficitur urna. Nam id risus efficitur, rutrum ex a, pretium nulla. In augue metus, mattis non nunc sed, varius semper nisi. Sed malesuada, mi ac cursus auctor, risus est tincidunt erat, id cursus augue nisi non lacus. Aenean placerat arcu sem. Nam sit amet porttitor elit, vitae congue sapien.</p>
-                            <div class="col-md-12">
+                        <div class="col-md-12 cart">
+                            <div ng-if="cart.length" class="shopping-cart">
+                                <h4>{{cart.length}} libro(s) en carrito, &#8353;{{getCartPrice()}}</h4>
+                                <span ng-repeat="product in cart">
+                                    <img ng-src="{{product.cover}}">
+                                    <span class="badge" ng-show="product.quantity > 1">x{{product.quantity}}</span>
+                                </span>
+                                <p class="chkout-btn">
+                                    <button class="btn btn-primary" ng-click="checkout();">Checkout</button>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -112,15 +119,17 @@
                                     <p>Autor: {{bookStore.selected.author}}
                                         <br> Idioma: {{bookStore.selected.language}}
                                         <br> Editorial: {{bookStore.selected.publisher}}
-                                        <br> Precio: {{bookStore.selected.price}}
+                                        <br> Precio: &#8353;{{bookStore.selected.price}}
                                         <br> Publicado: {{bookStore.selected.published}}
                                     </p>
                                 </div>
                             </div>
                         </div>
+                        <!--
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Agregar a carrito</button>
-                        </div>
+    <button type="button" class="btn btn-primary">Agregar a carrito</button>
+</div>
+-->
                     </div>
                 </div>
             </div>

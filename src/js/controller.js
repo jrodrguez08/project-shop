@@ -5,6 +5,7 @@ app.controller("catalogController", function ($scope, $http) {
         selected: {},
         books: null
     };
+    $scope.cart = [];
     $http.get("json/books.json")
         .success(function (data) {
             console.log(data);
@@ -13,4 +14,28 @@ app.controller("catalogController", function ($scope, $http) {
         .error(function (err) {
 
         });
+
+    $scope.addToCart = function (book) {
+        var found = false;
+        $scope.cart.forEach(function (item) {
+            if (item.id === book.id) {
+                item.quantity++;
+                found = true;
+            }
+        });
+        if (!found) {
+            $scope.cart.push(angular.extend({
+                quantity: 1
+            }, book));
+        }
+    };
+
+    $scope.getCartPrice = function () {
+        var total = 0;
+        $scope.cart.forEach(function (product) {
+            total += product.price * product.quantity;
+        });
+        return total;
+    };
+
 });
