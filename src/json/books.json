@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "title": "Harry Potter y la Piedra Filosofal",
+        "title": "La Piedra Filosofal",
         "author": "J. K. Rowling",
         "language": "Español",
         "publisher": "Salamandra",
@@ -11,7 +11,7 @@
         },
     {
         "id": "2",
-        "title": "Harry Potter y la Cámara Secreta",
+        "title": "La Cámara Secreta",
         "author": "J. K. Rowling",
         "language": "Español",
         "publisher": "Salamandra",
@@ -21,7 +21,7 @@
         },
     {
         "id": "3",
-        "title": "Harry Potter y el Prisionero de Azkaban",
+        "title": "El Prisionero de Azkaban",
         "author": "J. K. Rowling",
         "language": "Español",
         "publisher": "Salamandra",
@@ -31,7 +31,7 @@
         },
     {
         "id": "4",
-        "title": "Harry Potter y el Cáliz de Fuego",
+        "title": "El Cáliz de Fuego",
         "author": "J. K. Rowling",
         "language": "Español",
         "publisher": "Salamandra",
@@ -41,7 +41,7 @@
     },
     {
         "id": "5",
-        "title": "Harry Potter y la Orden del Fenix",
+        "title": "La Orden del Fenix",
         "author": "J. K. Rowling",
         "language": "Español",
         "publisher": "Salamandra",
@@ -51,12 +51,42 @@
     },
     {
         "id": "6",
-        "title": "Harry Potter y el Principe Mestizo",
+        "title": "El Principe Mestizo",
         "author": "J. K. Rowling",
         "language": "Español",
         "publisher": "Salamandra",
         "price": "16000",
         "published": "Febrero, 2006",
         "cover": "images/pm.png"
+    },
+    {
+        "id": "7",
+        "title": "Las Reliquias de la Muerte",
+        "author": "J. K. Rowling",
+        "language": "Español",
+        "publisher": "Salamandra",
+        "price": "18000",
+        "published": "Febrero, 2008",
+        "cover": "images/rm.png"
+    },
+    {
+        "id": "8",
+        "title": "Los Juegos del Hambre",
+        "author": "Suzanne Collins",
+        "language": "Español",
+        "publisher": "Scholastic",
+        "price": "7000",
+        "published": "Octubre, 2008",
+        "cover": "images/jh.png"
+    },
+    {
+        "id": "9",
+        "title": "En Llamas",
+        "author": "Suzanne Collins",
+        "language": "Español",
+        "publisher": "Scholastic",
+        "price": "8000",
+        "published": "Septiembre, 2009",
+        "cover": "images/caf.jpg"
     }
 ]

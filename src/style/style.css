@@ -47,18 +47,18 @@
     padding-bottom: 5%;
 }
 
+.cart {
+    position: absolute;
+}
+
 .cart .quant {
     position: relative;
-    top: -85px;
-    left: -40px;
+    top: -162px;
+    left: 4px;
 }
 
 .cart .remove {
     position: relative;
-    top: 84px;
-    left: -158px;
-}
-
-.chkout-btn {
-    margin-top: 2%;
+    top: -24px;
+    left: 4px;
 }
