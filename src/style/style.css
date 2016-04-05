@@ -47,10 +47,16 @@
     padding-bottom: 5%;
 }
 
-.cart img+span.badge {
+.cart .quant {
     position: relative;
     top: -85px;
-    left: -35px;
+    left: -40px;
+}
+
+.cart .remove {
+    position: relative;
+    top: 84px;
+    left: -158px;
 }
 
 .chkout-btn {

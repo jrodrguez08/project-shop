@@ -30,6 +30,11 @@ app.controller("catalogController", function ($scope, $http) {
         }
     };
 
+    $scope.removeFromCart = function (item) {
+        var index = $scope.cart.indexOf(item);
+        $scope.cart.splice(index, 1);
+    };
+
     $scope.getCartPrice = function () {
         var total = 0;
         $scope.cart.forEach(function (product) {
