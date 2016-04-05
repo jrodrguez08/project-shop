@@ -9,7 +9,7 @@
     <div class="col-md-6">
         <h2>Detalle del Pedido</h2>
         <ul>
-            <li ng-repeat="item in cart">{{item.title}}, {{item.quantity}}</li>
+            <li ng-repeat="product in cart">{{product.title}}</li>
         </ul>
     </div>
 </div>
@@ -33,7 +33,7 @@
                 <label for="clientCard">Tarjeta de Crédito</label>
                 <input type="text" class="form-control" id="clientCard" placeholder="Tarjeta" required>
             </div>
-            <button type="submit" class="btn btn-success">Confirmar</button>
+            <button type="submit" class="btn btn-success" ng-click="Test()">Confirmar</button>
         </form>
     </div>
 </div>

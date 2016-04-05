@@ -1,4 +1,4 @@
-var app = angular.module("Shop", ["ngRoute"]);
+var app = angular.module("Shop", ["ngRoute", "ngStorage"]);
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -39,12 +39,13 @@ app.factory("DataService", function () {
     };
 });
 
-app.controller("catalogController", function ($scope, $http, DataService) {
+app.controller("catalogController", function ($scope, $http, $sessionStorage) {
+    $sessionStorage.SessionMessage = [];
+    $scope.cart = [];
     $scope.bookStore = {
         selected: {},
         books: null
     };
-    $scope.cart = [];
     $http.get("json/books.json")
         .success(function (data) {
             console.log(data);
@@ -60,14 +61,12 @@ app.controller("catalogController", function ($scope, $http, DataService) {
             if (item.id === book.id) {
                 item.quantity++;
                 found = true;
-                DataService.set(book);
             }
         });
         if (!found) {
             $scope.cart.push(angular.extend({
                 quantity: 1
             }, book));
-            DataService.set(book);
         }
     };
 
@@ -84,8 +83,8 @@ app.controller("catalogController", function ($scope, $http, DataService) {
         return total;
     };
 
-});
+    $scope.Test = function (book) {
+        console.log($sessionStorage.SessionMessage);
+    };
 
-app.controller("checkoutController", function ($scope, DataService) {
-    $scope.cart = DataService.get();
 });
