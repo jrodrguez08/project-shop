@@ -1,6 +1,45 @@
-var app = angular.module("Shop", []);
-app.controller("catalogController", function ($scope, $http) {
-    $scope.nombre = "heredia";
+var app = angular.module("Shop", ["ngRoute"]);
+
+app.config(function ($routeProvider) {
+    $routeProvider
+        .when('/home', {
+            templateUrl: '../pages/home.html'
+        })
+        .when('/', {
+            templateUrl: '../pages/home.html'
+        })
+        .when('/qs', {
+            templateUrl: '../pages/qs.html',
+            controller: 'aboutController'
+        })
+        .when('/contacto', {
+            templateUrl: '../pages/contacto.html'
+        })
+        .when('/checkout', {
+            templateUrl: '../pages/checkout.html',
+            controller: 'catalogController'
+        })
+        .when('/catalogo', {
+            templateUrl: '../pages/catalogo.html',
+            controller: 'catalogController'
+        });
+});
+
+app.factory("DataService", function () {
+    var cart = [];
+    var set = function (data) {
+        cart.push(data);
+    }
+    var get = function () {
+        return cart;
+    }
+    return {
+        set: set,
+        get: get
+    };
+});
+
+app.controller("catalogController", function ($scope, $http, DataService) {
     $scope.bookStore = {
         selected: {},
         books: null
@@ -21,12 +60,14 @@ app.controller("catalogController", function ($scope, $http) {
             if (item.id === book.id) {
                 item.quantity++;
                 found = true;
+                DataService.set(book);
             }
         });
         if (!found) {
             $scope.cart.push(angular.extend({
                 quantity: 1
             }, book));
+            DataService.set(book);
         }
     };
 
@@ -43,4 +84,8 @@ app.controller("catalogController", function ($scope, $http) {
         return total;
     };
 
+});
+
+app.controller("checkoutController", function ($scope, DataService) {
+    $scope.cart = DataService.get();
 });

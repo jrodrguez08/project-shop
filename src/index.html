@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Shop">
 
 <head>
     <meta charset=utf-8 />
@@ -9,9 +9,12 @@
     <script src="js/jquery-2.2.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/js.js"></script>
 </head>
 
-<body>
+<body onload="getLocation()" ng-controller="catalogController">
     <div class="container-fluid">
         <div class="row">
             <nav class="navbar navbar-default">
@@ -23,13 +26,13 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html">Librer&iacute;a <span class="glyphicon glyphicon-book" aria-hidden="true"></span></a>
+                        <a class="navbar-brand" href="#home">Librer&iacute;a <span class="glyphicon glyphicon-book" aria-hidden="true"></span></a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="qs.html">Quiénes somos <span class="glyphicon glyphicon-info-sign"></span></a></li>
-                            <li><a href="catalogo.html">Catálogo <span class="glyphicon glyphicon-list-alt"></span></a></li>
-                            <li><a href="contacto.html">Contáctenos <span class="glyphicon glyphicon-phone-alt"></span></a></li>
+                            <li><a href="#qs">Quiénes somos <span class="glyphicon glyphicon-info-sign"></span></a></li>
+                            <li><a href="#catalogo">Catálogo <span class="glyphicon glyphicon-list-alt"></span></a></li>
+                            <li><a href="#contacto">Contáctenos <span class="glyphicon glyphicon-phone-alt"></span></a></li>
                             <li><a href="#">Link 4</a></li>
                         </ul>
                     </div>
@@ -39,47 +42,9 @@
     </div>
 
     <div class="container-fluid">
-        <div class="container">
-            <div class="row">
-                <div class="jumbotron">
-                    <h1>Hola!</h1>
-                    <p>Somos una librería en línea</p>
-                    <p><a class="btn btn-primary btn-lg" href="qs.html" role="button">Leer más</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
+        <div class="container" ng-view>
+            <!-- AQUI -->
 
-    <div class="container-fluid bottom">
-        <div class="container">
-            <div class="row carousel-bottom">
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="images/harry.jpg" alt="Harry Potter" class="img-responsive">
-                        </div>
-                        <div class="item">
-                            <img src="images/the-hunger-games.jpg" alt="Hunger Games" class="img-responsive">
-                        </div>
-                        <div class="item">
-                            <img src="images/principito.jpg" alt="El Principito" class="img-responsive">
-                        </div>
-                    </div>
-                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
 </body>
