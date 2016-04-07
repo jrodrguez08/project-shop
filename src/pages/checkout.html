@@ -9,31 +9,39 @@
     <div class="col-md-6">
         <h2>Detalle del Pedido</h2>
         <ul>
-            <li ng-repeat="product in cart">{{product.title}}</li>
+            <li class="text-warning" ng-repeat="product in cart">x{{product.quantity}} - {{product.title}} = &#8353;{{product.price}}</li>
         </ul>
+        <h3 ng-show="getCartPrice() > 0"><span class="text-danger">Total a pagar: &#8353;{{getCartPrice()}}</span></h3>
     </div>
-</div>
-<div class="row">
+
     <div class="col-md-6">
         <h2>Datos</h2>
-        <form>
+        <form action="mailto:jrodrguez08@gmail.com?subject=Pedido Libreria Virtual" method="post" enctype="text/plain" method="post">
             <div class="form-group">
                 <label for="clientName">Nombre</label>
-                <input type="text" class="form-control" id="clientName" placeholder="Nombre" required>
+                <input type="text" class="form-control" id="clientName" name="Nombre" placeholder="Nombre" required>
             </div>
             <div class="form-group">
                 <label for="clientEmail">Email</label>
-                <input type="email" class="form-control" id="clientEmail" placeholder="Email" required>
+                <input type="email" class="form-control" id="clientEmail" name="Email" placeholder="Email" required>
             </div>
             <div class="form-group">
                 <label for="clientAddress">Dirección</label>
-                <input type="text" class="form-control" id="clientAddress" placeholder="Dirección" required>
+                <input type="text" class="form-control" id="clientAddress" name="Direccion" placeholder="Dirección" required>
             </div>
             <div class="form-group">
                 <label for="clientCard">Tarjeta de Crédito</label>
-                <input type="text" class="form-control" id="clientCard" placeholder="Tarjeta" required>
+                <input type="text" class="form-control" id="clientCard" name="Tarjeta" placeholder="Tarjeta" required>
             </div>
-            <button type="submit" class="btn btn-success" ng-click="Test()">Confirmar</button>
+            <div class="form-group">
+                <label for="clientOrder">Pedido</label>
+                <textarea class="form-control" id="clientOrder" name="Pedido" readonly>{{getCartText()}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="orderTotal">Total a pagar</label>
+                <input type="text" class="form-control" id="orderTotal" name="Total" value="&#8353;{{getCartPrice()}}" readonly>
+            </div>
+            <button type="submit" class="btn btn-success">Confirmar</button>
         </form>
     </div>
 </div>

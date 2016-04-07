@@ -47,7 +47,7 @@
             <div class="col-md-12 cart">
                 <div ng-if="cart.length" class="row">
                     <div class="col-md-12">
-                        <h4>{{cart.length}} libro(s) en carrito, &#8353;{{getCartPrice()}}</h4>
+                        <h4 class="text-info">{{cart.length}} libro<span ng-show="cart.length > 1">s</s></span> en carrito, &#8353;{{getCartPrice()}}</h4>
                     </div>
 
                     <div class="row">

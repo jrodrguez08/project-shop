@@ -34,7 +34,11 @@
                             <li><a href="#qs">Quiénes somos <span class="glyphicon glyphicon-info-sign"></span></a></li>
                             <li><a href="#catalogo">Catálogo <span class="glyphicon glyphicon-list-alt"></span></a></li>
                             <li><a href="#contacto">Contáctenos <span class="glyphicon glyphicon-phone-alt"></span></a></li>
-                            <li><a href="#">Link 4</a></li>
+                            <li><a href="#checkout">Checkout <span class="glyphicon glyphicon-piggy-bank"></span></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="navbar-text">Total en carrito: <span class="text-primary" ng-show="getCartPrice() > 0">{{cart.length}} Producto<span ng-show="cart.length > 1">s</span> - &#8353;{{getCartPrice()}}</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -44,7 +48,7 @@
 
     <div class="container-fluid">
         <div class="container" ng-view>
-            <!-- AQUI -->
+
 
         </div>
     </div>

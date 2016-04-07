@@ -1,4 +1,4 @@
-var app = angular.module("Shop", ["ngRoute", "ngStorage"]);
+var app = angular.module("Shop", ["ngRoute"]);
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -27,21 +27,47 @@ app.config(function ($routeProvider) {
 
 app.factory("DataService", function () {
     var cart = [];
-    var set = function (data) {
-        cart.push(data);
-    }
-    var get = function () {
-        return cart;
-    }
     return {
-        set: set,
-        get: get
-    };
+        addToCart: function (book) {
+            var found = false;
+            cart.forEach(function (item) {
+                if (item.id === book.id) {
+                    item.quantity++;
+                    found = true;
+                }
+            });
+            if (!found) {
+                cart.push(angular.extend({
+                    quantity: 1
+                }, book));
+            }
+        },
+        removeFromCart: function (item) {
+            var index = cart.indexOf(item);
+            cart.splice(index, 1);
+        },
+        getCartPrice: function () {
+            var total = 0;
+            cart.forEach(function (product) {
+                total += product.price * product.quantity;
+            });
+            return total;
+        },
+        getCart: function () {
+            return cart;
+        },
+        getCartText: function () {
+            var text = "";
+            angular.forEach(cart, function (item) {
+                text = text + "x" + item.quantity + " " + "-" + " " + item.title + "\n";
+            });
+            return text;
+        }
+    }
 });
 
-app.controller("catalogController", function ($scope, $http, $sessionStorage) {
-    $sessionStorage.SessionMessage = [];
-    $scope.cart = [];
+app.controller("catalogController", function ($scope, $http, DataService) {
+    $scope.cart = DataService.getCart();
     $scope.bookStore = {
         selected: {},
         books: null
@@ -56,35 +82,23 @@ app.controller("catalogController", function ($scope, $http, $sessionStorage) {
         });
 
     $scope.addToCart = function (book) {
-        var found = false;
-        $scope.cart.forEach(function (item) {
-            if (item.id === book.id) {
-                item.quantity++;
-                found = true;
-            }
-        });
-        if (!found) {
-            $scope.cart.push(angular.extend({
-                quantity: 1
-            }, book));
-        }
+        DataService.addToCart(book);
+        $scope.cart = DataService.getCart();
+        console.log(book);
     };
 
     $scope.removeFromCart = function (item) {
-        var index = $scope.cart.indexOf(item);
-        $scope.cart.splice(index, 1);
+        DataService.removeFromCart(item);
+        $scope.cart = DataService.getCart();
+        console.log(item);
     };
 
     $scope.getCartPrice = function () {
-        var total = 0;
-        $scope.cart.forEach(function (product) {
-            total += product.price * product.quantity;
-        });
-        return total;
+        return DataService.getCartPrice();
     };
 
-    $scope.Test = function (book) {
-        console.log($sessionStorage.SessionMessage);
-    };
+    $scope.getCartText = function () {
+        return DataService.getCartText();
+    }
 
 });
