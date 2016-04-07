@@ -19,6 +19,10 @@ app.config(function ($routeProvider) {
             templateUrl: '../pages/checkout.html',
             controller: 'catalogController'
         })
+        .when('/cart', {
+            templateUrl: '../pages/cart.html',
+            controller: 'catalogController'
+        })
         .when('/catalogo', {
             templateUrl: '../pages/catalogo.html',
             controller: 'catalogController'

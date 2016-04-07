@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="page-header">
+        <h1>Librería Virtual <small>Carrito</small></h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 cart">
+                <div ng-if="cart.length" class="row">
+                    <div class="col-md-12">
+                        <h4 class="text-info">{{cart.length}} libro<span ng-show="cart.length > 1">s</s></span> en carrito, &#8353;{{getCartPrice()}}</h4>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-3 col-md-2" ng-repeat="product in cart">
+                            <img ng-src="{{product.cover}}" class="img-responsive">
+                            <span class="badge quant" ng-show="product.quantity > 1">x{{product.quantity}}</span>
+                            <a ng-show="product.quantity > 0" class="badge remove" href="" role="button" ng-click="removeFromCart(product)"><span class="glyphicon glyphicon-remove-sign"></span></a>
+                        </div>
+                    </div>
+                    <p>
+                        <a href="#checkout" class="btn btn-primary" role="button">Confirmar <span class="glyphicon glyphicon-check"></span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
