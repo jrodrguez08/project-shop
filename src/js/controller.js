@@ -3,14 +3,15 @@ var app = angular.module("Shop", ["ngRoute"]);
 app.config(function ($routeProvider) {
     $routeProvider
         .when('/home', {
-            templateUrl: '../pages/home.html'
+            templateUrl: '../pages/home.html',
+            controller: 'catalogController'
         })
         .when('/', {
-            templateUrl: '../pages/home.html'
+            templateUrl: '../pages/home.html',
+            controller: 'catalogController'
         })
         .when('/qs', {
-            templateUrl: '../pages/qs.html',
-            controller: 'aboutController'
+            templateUrl: '../pages/qs.html'
         })
         .when('/contacto', {
             templateUrl: '../pages/contacto.html'
@@ -31,6 +32,7 @@ app.config(function ($routeProvider) {
 
 app.factory("DataService", function () {
     var cart = [];
+
     return {
         addToCart: function (book) {
             var found = false;
@@ -76,6 +78,9 @@ app.controller("catalogController", function ($scope, $http, DataService) {
         selected: {},
         books: null
     };
+    $scope.myInterval = 3000;
+
+
     $http.get("json/books.json")
         .success(function (data) {
             console.log(data);
@@ -104,5 +109,6 @@ app.controller("catalogController", function ($scope, $http, DataService) {
     $scope.getCartText = function () {
         return DataService.getCartText();
     }
+
 
 });
