@@ -18,6 +18,7 @@
                             <img ng-src="{{product.cover}}" class="img-responsive">
                             <span class="badge quant" ng-show="product.quantity > 1">x{{product.quantity}}</span>
                             <a ng-show="product.quantity > 0" class="badge remove" href="" role="button" ng-click="removeFromCart(product)"><span class="glyphicon glyphicon-remove-sign"></span></a>
+                            <p class="text-info">Costo por línea: &#8353;{{getBookPrice(product)}}</p>
                         </div>
                     </div>
                     <p>

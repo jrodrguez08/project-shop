@@ -108,6 +108,10 @@ app.controller("catalogController", function ($scope, $http, DataService) {
 
     $scope.getCartText = function () {
         return DataService.getCartText();
+    };
+
+    $scope.getBookPrice = function (item) {
+        return (item.quantity * item.price);
     }
 
 

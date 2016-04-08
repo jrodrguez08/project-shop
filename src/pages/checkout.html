@@ -9,7 +9,7 @@
     <div class="col-md-6">
         <h2>Detalle del Pedido</h2>
         <ul>
-            <li class="text-warning" ng-repeat="product in cart">x{{product.quantity}} - {{product.title}} = &#8353;{{product.price}}</li>
+            <li class="text-warning" ng-repeat="product in cart">x{{product.quantity}} - {{product.title}} = &#8353;{{getBookPrice(product)}}</li>
         </ul>
         <h3 ng-show="getCartPrice() > 0"><span class="text-danger">Total a pagar: &#8353;{{getCartPrice()}}</span></h3>
     </div>
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label for="clientCard">Tarjeta de Crédito</label>
-                <input type="text" class="form-control" id="clientCard" name="Tarjeta" placeholder="Tarjeta" required>
+                <input type="text" class="form-control" id="clientCard" name="Tarjeta" placeholder="Tarjeta" pattern="\b(?:3[47]\d|(?:4\d|5[1-5]|65)\d{2}|6011)\d{12}\b" required>
             </div>
             <div class="form-group">
                 <label for="clientOrder">Pedido</label>
