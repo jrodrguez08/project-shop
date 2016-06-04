@@ -1,6 +1,6 @@
-var app = angular.module("Shop", ["ngRoute"]);
+var app = angular.module('Shop', ['ngRoute', 'ngAnimate']);
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/home', {
             templateUrl: '../pages/home.html',
@@ -30,7 +30,7 @@ app.config(function ($routeProvider) {
         });
 });
 
-app.factory("DataService", function () {
+app.factory('DataService', function () {
     var cart = [];
 
     return {
@@ -63,16 +63,16 @@ app.factory("DataService", function () {
             return cart;
         },
         getCartText: function () {
-            var text = "";
+            var text = '';
             angular.forEach(cart, function (item) {
-                text = text + "x" + item.quantity + " " + "-" + " " + item.title + "\n";
+                text = text + 'x' + item.quantity + ' ' + '-' + ' ' + item.title + '\n';
             });
             return text;
         }
     }
 });
 
-app.controller("catalogController", function ($scope, $http, DataService) {
+app.controller('catalogController', function ($scope, $http, DataService) {
     $scope.cart = DataService.getCart();
     $scope.bookStore = {
         selected: {},
@@ -81,7 +81,7 @@ app.controller("catalogController", function ($scope, $http, DataService) {
     $scope.myInterval = 3000;
 
 
-    $http.get("json/books.json")
+    $http.get('json/books.json')
         .success(function (data) {
             console.log(data);
             $scope.bookStore.books = data;

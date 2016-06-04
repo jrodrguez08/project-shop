@@ -62,3 +62,32 @@
     top: -24px;
     left: 4px;
 }
+
+.abs {
+    position: absolute;
+}
+
+@keyframes slideOutLeft {
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.ng-enter {
+    animation: slideInRight 0.5s both ease-in;
+    z-index: 88888;
+}
+
+.ng-leave {
+    animation: slideOutLeft 0.5s both ease-in;
+    z-index: 9999;
+}
